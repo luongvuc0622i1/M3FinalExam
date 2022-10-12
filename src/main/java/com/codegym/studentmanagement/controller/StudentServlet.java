@@ -39,9 +39,9 @@ public class StudentServlet extends HttpServlet {
             case "delete":
                 deleteStudent(request,response);
                 break;
-            case "find":
-                findByName(request,response);
-                break;
+//            case "find":
+//                findByName(request,response);
+//                break;
             default:
                 listStudent(request,response);
                 break;
