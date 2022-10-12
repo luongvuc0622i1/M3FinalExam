@@ -120,7 +120,7 @@
         table.table td a {
             color: #a0a5b1;
             display: inline-block;
-            margin: 0 5px;
+            margin: 1 5px;
         }
         table.table td a.view {
             color: #03A9F4;
