@@ -49,7 +49,7 @@ public class StudentServlet extends HttpServlet {
     }
 
     private void listStudent(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Student> students = studentDAO.selectAllStudents();
+        List<Student> students = (List<Student>) studentDAO.selectAllStudents();
         request.setAttribute("students", students);
         RequestDispatcher dispatcher = request.getRequestDispatcher("student/list.jsp");
         dispatcher.forward(request,response);
@@ -57,7 +57,7 @@ public class StudentServlet extends HttpServlet {
 
     private void findByName(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String name = new String(request.getParameter("search").getBytes("iso-8859-1"),"utf-8");
-        List<Student> students = studentDAO.selectStudentByName(name);
+        List<Student> students = (List<Student>) studentDAO.selectStudentByName(name);
         request.setAttribute("students",students);
         RequestDispatcher dispatcher = request.getRequestDispatcher("student/list.jsp");
         dispatcher.forward(request,response);
@@ -66,7 +66,7 @@ public class StudentServlet extends HttpServlet {
     private void deleteStudent(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         int id = Integer.parseInt(request.getParameter("id"));
         studentDAO.deleteStudent(id);
-        List<Student> students = studentDAO.selectAllStudents();
+        List<Student> students = (List<Student>) studentDAO.selectAllStudents();
         request.setAttribute("students", students);
         RequestDispatcher dispatcher = request.getRequestDispatcher("student/list.jsp");
         dispatcher.forward(request, response);
@@ -74,8 +74,8 @@ public class StudentServlet extends HttpServlet {
 
     private void showEdit(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
-        Student student = studentDAO.selectStudentById(id);
-        List<Classroom> classes = classDAO.selectAllClasses();
+        Student student = (Student) studentDAO.selectStudentById(id);
+        List<Classroom> classes = (List<Classroom>) classDAO.selectAllClasses();
         RequestDispatcher dispatcher;
         if (student == null){
             dispatcher = request.getRequestDispatcher("student/fail.jsp");
@@ -88,7 +88,7 @@ public class StudentServlet extends HttpServlet {
     }
 
     private void showCreate(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Classroom> classes = classDAO.selectAllClasses();
+        List<Classroom> classes = (List<Classroom>) classDAO.selectAllClasses();
         request.setAttribute("classes", classes);
         RequestDispatcher dispatcher = request.getRequestDispatcher("student/create.jsp");
         dispatcher.forward(request,response);
