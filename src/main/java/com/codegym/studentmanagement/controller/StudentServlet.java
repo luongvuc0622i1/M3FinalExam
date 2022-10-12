@@ -39,9 +39,6 @@ public class StudentServlet extends HttpServlet {
             case "delete":
                 deleteStudent(request,response);
                 break;
-//            case "find":
-//                findByName(request,response);
-//                break;
             default:
                 listStudent(request,response);
                 break;
@@ -51,14 +48,6 @@ public class StudentServlet extends HttpServlet {
     private void listStudent(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Student> students = (List<Student>) studentDAO.selectAllStudents();
         request.setAttribute("students", students);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("student/list.jsp");
-        dispatcher.forward(request,response);
-    }
-
-    private void findByName(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String name = new String(request.getParameter("search").getBytes("iso-8859-1"),"utf-8");
-        List<Student> students = (List<Student>) studentDAO.selectStudentByName(name);
-        request.setAttribute("students",students);
         RequestDispatcher dispatcher = request.getRequestDispatcher("student/list.jsp");
         dispatcher.forward(request,response);
     }
@@ -148,6 +137,14 @@ public class StudentServlet extends HttpServlet {
         studentDAO.insertStudent(newStudent);
         request.setAttribute("message", "Thêm học viên thành công!");
         RequestDispatcher dispatcher = request.getRequestDispatcher("student/create.jsp");
+        dispatcher.forward(request,response);
+    }
+
+    private void findByName(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String name = new String(request.getParameter("search").getBytes("iso-8859-1"),"utf-8");
+        List<Student> students = (List<Student>) studentDAO.selectStudentByName(name);
+        request.setAttribute("students",students);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("student/list.jsp");
         dispatcher.forward(request,response);
     }
 }

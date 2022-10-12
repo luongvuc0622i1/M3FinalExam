@@ -50,31 +50,31 @@
                                 <div class="form-group row">
                                     <label for="username" class="col-4 col-form-label">Full Name*</label>
                                     <div class="col-8">
-                                        <input id="username" name="name" placeholder="name" class="form-control here" required="required" type="text">
+                                        <input id="username" name="name" placeholder="Nguyễn Văn A" class="form-control here" required="required" type="text">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="name" class="col-4 col-form-label">Birthday</label>
                                     <div class="col-8">
-                                        <input id="name" name="dateOfBirth" placeholder="First Name" class="form-control here" type="date">
+                                        <input id="name" name="dateOfBirth" placeholder="**/**/****" class="form-control here" type="date">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="address" class="col-4 col-form-label">Address</label>
                                     <div class="col-8">
-                                        <input id="address" name="address" placeholder="Address" class="form-control here" type="text">
+                                        <input id="address" name="address" placeholder="Hà Nội" class="form-control here" type="text">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="email" class="col-4 col-form-label">Email*</label>
                                     <div class="col-8">
-                                        <input id="email" name="email" placeholder="Email" class="form-control here" required="required" type="text">
+                                        <input id="email" name="email" placeholder="abc@codegym.vn" class="form-control here" required="required" type="text">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="phone" class="col-4 col-form-label">Phone Number*</label>
                                     <div class="col-8">
-                                        <input id="phone" name="phone" placeholder="Phone Number" class="form-control here" type="text">
+                                        <input id="phone" name="phone" placeholder="0*********" class="form-control here" type="text">
                                     </div>
                                 </div>
                                 <div class="form-group row">
